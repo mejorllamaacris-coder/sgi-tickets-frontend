@@ -1,0 +1,54 @@
+.fi-field { display: flex; flex-direction: column; gap: .35rem; }
+
+.fi-label {
+  margin-left: .15rem;
+  color: #4D5158;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.fi-input-wrap { position: relative; display: flex; align-items: center; }
+
+.fi-input-icon {
+  position: absolute;
+  left: 15px;
+  z-index: 1;
+  color: #8A8F98;
+  font-size: .95rem;
+  pointer-events: none;
+}
+
+.fi-input {
+  width: 100% !important;
+  height: 52px !important;
+  padding: 0 44px 0 44px !important;
+  color: var(--sgi-ink) !important;
+  background: var(--sgi-surface-soft) !important;
+  border: 1px solid var(--sgi-border-strong) !important;
+  border-radius: var(--sgi-radius-control) !important;
+  box-shadow: none !important;
+  font-family: var(--sgi-font-body);
+  font-size: .94rem !important;
+  outline: none !important;
+  transition: border-color .2s, box-shadow .2s, background .2s !important;
+}
+
+.fi-input::placeholder { color: #8A8F98; }
+.fi-input:hover { border-color: #C5CAD2 !important; }
+
+.fi-input:focus {
+  background: var(--sgi-surface) !important;
+  border-color: var(--sgi-accent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--sgi-accent) 14%, transparent) !important;
+}
+
+.app-dark .fi-input {
+  color: #E5E5E5 !important;
+  background: rgba(255,255,255,.04) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+
+.app-dark .fi-input:focus { background: rgba(255,255,255,.06) !important; }
+.fi-error { margin-top: .1rem; margin-left: .15rem; color: #B4234D; font-size: .7rem; font-weight: 600; }

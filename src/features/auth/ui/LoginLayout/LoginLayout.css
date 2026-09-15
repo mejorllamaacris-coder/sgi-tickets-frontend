@@ -1,0 +1,106 @@
+* { box-sizing: border-box; }
+
+.login-split {
+  display: grid;
+  grid-template-columns: minmax(420px, .96fr) minmax(0, 1.04fr);
+  min-height: 100dvh;
+  width: 100%;
+  background: var(--sgi-page);
+}
+
+.login-left {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: clamp(1.25rem, 3vw, 3rem);
+  background: var(--sgi-page);
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .38;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--sgi-accent) 14%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--sgi-accent) 14%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(135deg, black, transparent 62%);
+  pointer-events: none;
+}
+
+.login-left > .login-card {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 390px);
+}
+
+.login-theme-toggle {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 20;
+}
+
+/* FIX: espaciado uniforme arriba y abajo (12px los 4 lados excepto derecha que es 0) */
+.login-right {
+  position: relative;
+  isolation: isolate;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - 24px);
+  margin: 12px 0 12px 14px;
+  overflow: hidden;
+  border: 1px solid var(--sgi-boundary);
+  border-radius: 28px;
+  background: var(--sgi-panel-bg);
+  box-shadow: 0 18px 42px rgba(17, 10, 15, .16), inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.login-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse 60px 60px at 25% 30%, 
+      color-mix(in srgb, var(--sgi-accent) 6%, transparent) 0%, 
+      transparent 100%
+    ),
+    radial-gradient(ellipse 50px 70px at 70% 60%, 
+      color-mix(in srgb, var(--sgi-accent) 4%, transparent) 0%, 
+      transparent 100%
+    ),
+    radial-gradient(ellipse 40px 40px at 50% 80%,
+      color-mix(in srgb, var(--sgi-accent) 3%, transparent) 0%,
+      transparent 100%
+    );
+  background-size: 200% 200%;
+  animation: aurora 30s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+  0%   { background-position: 0% 0%, 100% 100%, 50% 50%; }
+  25%  { background-position: 40% 20%, 60% 80%, 30% 70%; }
+  50%  { background-position: 80% 50%, 40% 40%, 70% 30%; }
+  75%  { background-position: 20% 70%, 80% 60%, 40% 80%; }
+  100% { background-position: 50% 90%, 60% 20%, 60% 40%; }
+}
+
+@media (max-width: 900px) {
+  .login-split { grid-template-columns: minmax(360px, .96fr) minmax(0, 1.04fr); }
+  .login-left { padding-inline: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .login-right { display: none; }
+  .login-left { width: 100%; padding: 4.5rem 1.25rem 1.5rem; }
+}
