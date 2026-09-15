@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════════════════
+   TablerosPage.css — Kanban nivel Silicon Valley
+   Estilo: Linear / Notion / Asana premium
+   Paleta: coherente con TicketsPage + CategoriasPage
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Header del tablero ── */
+.prd-kanban-info{margin-top:8px}
+.prd-kanban-header{padding:14px 18px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:16px}
+.prd-kanban-header h3{margin:0 0 6px;font-size:17px;font-weight:700;color:#0f172a;letter-spacing:-.2px}
+.prd-kanban-desc{margin:0 0 8px;font-size:13px;color:#64748b;line-height:1.5}
+.prd-kanban-area{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#f1f5f9;color:#475569;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+
+/* ── Board (contenedor scroll horizontal) ── */
+.kanban-board{display:flex;gap:14px;padding:4px;overflow-x:auto;min-height:calc(100vh - 280px);scrollbar-width:thin;scrollbar-color:#cbd5e1 transparent}
+.kanban-board::-webkit-scrollbar{height:8px}
+.kanban-board::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+.kanban-board::-webkit-scrollbar-track{background:transparent}
+
+/* ── Columna ── */
+.kanban-column{flex:0 0 280px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;display:flex;flex-direction:column;max-height:calc(100vh - 300px);transition:border-color .2s ease,box-shadow .2s ease}
+.kanban-column:hover{border-color:#cbd5e1;box-shadow:0 2px 8px rgba(15,23,42,.04)}
+
+.kanban-column__header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #e2e8f0;background:#fff;border-radius:12px 12px 0 0}
+.kanban-column__name{font-size:12px;font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:.6px}
+.kanban-column__count{background:#e2e8f0;color:#475569;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;min-width:22px;text-align:center}
+
+.kanban-column__cards{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;scrollbar-color:#cbd5e1 transparent}
+.kanban-column__cards::-webkit-scrollbar{width:6px}
+.kanban-column__cards::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+
+.kanban-column__empty{text-align:center;padding:24px 12px;color:#94a3b8;font-size:12px;font-style:italic;opacity:.7}
+
+/* ── Tarjeta ── */
+.kanban-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px;cursor:grab;transition:transform .15s ease,box-shadow .2s ease,border-color .2s ease;user-select:none}
+.kanban-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(15,23,42,.08);border-color:#cbd5e1}
+.kanban-card:active{cursor:grabbing;transform:translateY(0);box-shadow:0 2px 4px rgba(15,23,42,.1)}
+
+.kanban-card--vencida{border-left:3px solid #ef4444;background:#fef2f2}
+.kanban-card--vencida:hover{border-color:#dc2626}
+
+/* ── Top de tarjeta: código + complejidad ── */
+.kanban-card__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:6px}
+.kanban-card__code{font-size:11px;font-weight:700;color:#6366f1;font-family:ui-monospace,SFMono-Regular,monospace;letter-spacing:.3px}
+.kanban-card__complejidad{color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+
+/* ── Título ── */
+.kanban-card__titulo{margin:0 0 10px;font-size:13px;font-weight:600;color:#0f172a;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+/* WIP Limit indicators */
+.kanban-column__header--verde {
+  border-bottom: 3px solid #10b981;
+}
+
+.kanban-column__header--amarillo {
+  border-bottom: 3px solid #f59e0b;
+}
+
+.kanban-column__header--rojo {
+  border-bottom: 3px solid #ef4444;
+}
+
+.kanban-column--excedido {
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.kanban-column__count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.kanban-column__header--verde .kanban-column__count {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #065f46;
+}
+
+.kanban-column__header--amarillo .kanban-column__count {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #92400e;
+}
+
+.kanban-column__header--rojo .kanban-column__count {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #991b1b;
+}
+/* ── Bottom de tarjeta: estado + asignado ── */
+.kanban-card__bottom{display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px solid #f1f5f9;font-size:11px}
+.kanban-card__estado{color:#64748b;font-weight:600}
+.kanban-card__asignado{color:#94a3b8;font-size:11px;font-style:italic}
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════════════════════ */
+.app-dark .prd-kanban-header{background:#1e293b;border-color:#334155}
+.app-dark .prd-kanban-header h3{color:#f1f5f9}
+.app-dark .prd-kanban-desc{color:#94a3b8}
+.app-dark .prd-kanban-area{background:#334155;color:#cbd5e1}
+
+.app-dark .kanban-column{background:#0f172a;border-color:#1e293b}
+.app-dark .kanban-column:hover{border-color:#334155;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+
+.app-dark .kanban-column__header{background:#1e293b;border-color:#334155}
+.app-dark .kanban-column__name{color:#e2e8f0}
+.app-dark .kanban-column__count{background:#334155;color:#cbd5e1}
+
+.app-dark .kanban-column__cards::-webkit-scrollbar-thumb{background:#334155}
+.app-dark .kanban-board::-webkit-scrollbar-thumb{background:#334155}
+
+.app-dark .kanban-card{background:#1e293b;border-color:#334155}
+.app-dark .kanban-card:hover{border-color:#475569;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.app-dark .kanban-card--vencida{background:#451a1a;border-left-color:#dc2626}
+.app-dark .kanban-card__code{color:#818cf8}
+.app-dark .kanban-card__titulo{color:#f1f5f9}
+.app-dark .kanban-card__bottom{border-color:#334155}
+.app-dark .kanban-card__estado{color:#cbd5e1}
+.app-dark .kanban-card__asignado{color:#64748b}
+.app-dark .kanban-column__empty{color:#64748b}
+
+/* ── Pulido: columnas llenan todo el ancho ── */
+.kanban-board{align-items:stretch}
+.kanban-column{flex:1 1 280px;min-width:260px}
+
+/* ── Asignado con ícono ── */
+.kanban-card__asignado{display:inline-flex;align-items:center;gap:4px}
+.kanban-card__asignado--vacio{opacity:.6}
+
+/* ── Drag & drop feedback ── */
+.kanban-column--drag-over{border-color:#6366f1;border-style:dashed;background:#f5f3ff}
+.app-dark .kanban-column--drag-over{background:#1e1b4b;border-color:#818cf8}
+
+.kanban-card--dragging{opacity:.4}
