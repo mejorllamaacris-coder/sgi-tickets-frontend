@@ -1,0 +1,48 @@
+import type { LucideIcon } from 'lucide-react';
+import {
+  Headset, BarChart2, Receipt, Hash, MessageCircleWarning,
+  LayoutGrid, GitBranch, Users, XCircle, TrendingUp,
+  Timer, Building2, Home, Upload, ClipboardList,
+  FileSpreadsheet, LayoutDashboard, CheckCircle, Download,
+  Briefcase, Bug, CalendarDays, FileSignature, History,
+  Clock, Network, Users2, Settings, Layers, CreditCard,
+  AlertTriangle, ListOrdered, Workflow,
+} from 'lucide-react';
+
+export const iconMap: Record<string, LucideIcon> = {
+  'fi fi-rr-user-headset':        Headset,
+  'fi fi-rr-chart-histogram':     BarChart2,
+  'fi fi-rr-receipt':             Receipt,
+  'fi fi-sr-symbol':              Hash,
+  'fi fi-rr-comment-exclamation': MessageCircleWarning,
+  'fi fi-rr-category':            LayoutGrid,
+  'fi fi-rr-code-branch':         GitBranch,
+  'fi fi-rr-onboarding':          Users,
+  'fi fi-rr-survey-xmark':        XCircle,
+  'fi fi-rr-chart-mixed':         TrendingUp,
+  'fi fi-rr-duration':            Timer,
+  'fi fi-rr-industry-windows':    Building2,
+  'fi fi-rr-home':                Home,
+  'fi fi-rr-upload':              Upload,
+  'fi fi-rr-list-check':          ClipboardList,
+  'fi fi-rr-file-spreadsheet':    FileSpreadsheet,
+  'fi fi-rr-dashboard':           LayoutDashboard,
+  'fi fi-rr-completed':           CheckCircle,
+  'fi fi-rr-download':            Download,
+  'fi fi-rr-briefcase':           Briefcase,
+  'fi fi-rr-bug':                 Bug,
+  'fi fi-rr-daily-calendar':      CalendarDays,
+  'fi fi-rr-document-signed':     FileSignature,
+  'fi fi-rr-time-past':           History,
+  'fi fi-rr-clock-ten':           Clock,
+  'fi fi-rr-sitemap':             Network,
+  'fi fi-rr-users':               Users2,
+  'fi fi-rr-admin-alt':           Settings,
+  'fi fi-rr-layout-fluid':        Layers,
+  'fi fi-rr-mode-portrait':       CreditCard,
+  'fi fi-rr-sensor-alert':        AlertTriangle,
+  'fi fi-rr-list-timeline':       ListOrdered,
+  'fi fi-rr-interlining':         Workflow,
+};
+
+export const DEFAULT_ICON = LayoutDashboard;

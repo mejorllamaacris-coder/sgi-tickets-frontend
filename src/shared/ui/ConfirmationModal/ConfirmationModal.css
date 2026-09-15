@@ -1,0 +1,137 @@
+.cm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(10,12,18,.55);
+  backdrop-filter: blur(6px);
+  animation: cm-fade-in .18s ease;
+}
+
+.cm-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem 2rem 1.6rem;
+  background: linear-gradient(145deg, var(--sgi-glass-light), color-mix(in srgb, var(--sgi-surface) 70%, var(--sgi-accent-bg)));
+  border: 1px solid color-mix(in srgb, var(--sgi-accent) 22%, var(--sgi-border));
+  border-radius: var(--sgi-radius-card);
+  box-shadow: 0 24px 48px rgba(10,12,18,.18), inset 0 1px 0 rgba(255,255,255,.8);
+  animation: cm-slide-up .22s cubic-bezier(.34,1.56,.64,1);
+  text-align: center;
+}
+
+.cm-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  margin-bottom: .4rem;
+  border-radius: 14px;
+  font-size: 1.45rem;
+}
+.cm-icon-wrap--info    { background: color-mix(in srgb, var(--sgi-accent) 12%, transparent); color: var(--sgi-accent); }
+.cm-icon-wrap--warning { background: color-mix(in srgb, #F59E0B 14%, transparent); color: #D97706; }
+.cm-icon-wrap--danger  { background: color-mix(in srgb, #EF4444 12%, transparent); color: #DC2626; }
+.cm-icon-wrap--success { background: color-mix(in srgb, #10B981 12%, transparent); color: #059669; }
+
+.cm-title {
+  margin: 0;
+  color: var(--sgi-ink);
+  font-family: var(--sgi-font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.cm-description {
+  margin: 0;
+  color: var(--sgi-ink-muted);
+  font-size: .85rem;
+  line-height: 1.5;
+  max-width: 28ch;
+}
+
+.cm-summary {
+  width: 100%;
+  padding: .75rem 1rem;
+  margin-top: .2rem;
+  background: color-mix(in srgb, var(--sgi-accent) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sgi-accent) 16%, transparent);
+  border-radius: 10px;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.cm-actions { display: flex; flex-direction: column; gap: .5rem; width: 100%; margin-top: .8rem; }
+
+.cm-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; height: 44px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--sgi-font-body);
+  font-size: .9rem;
+  font-weight: 700;
+  transition: background .18s, box-shadow .18s;
+}
+.cm-btn:disabled { opacity: .5; cursor: not-allowed; }
+.cm-btn--primary { background: var(--sgi-accent); color: #fff; }
+.cm-btn--primary:hover:not(:disabled) { background: color-mix(in srgb, var(--sgi-accent) 88%, #000); }
+.cm-btn--danger  { background: #EF4444; color: #fff; }
+.cm-btn--danger:hover:not(:disabled)  { background: #DC2626; }
+.cm-btn--ghost   { background: transparent; color: var(--sgi-ink-muted); border: 1px solid var(--sgi-border); }
+.cm-btn--ghost:hover:not(:disabled)   { background: color-mix(in srgb, var(--sgi-ink) 5%, transparent); color: var(--sgi-ink); }
+
+/* ═══ Light mode (pegar al FINAL del archivo) ═══ */
+
+.cm-panel {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .15) !important;
+}
+
+.cm-title       { color: #1f2937 !important; }
+.cm-description { color: #6b7280 !important; }
+
+.cm-btn--ghost {
+  background: transparent !important;
+  color: #6b7280 !important;
+  border: 1px solid #e5e7eb !important;
+}
+.cm-btn--ghost:hover {
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+}
+
+/* ═══ Dark mode ═══ */
+
+.app-dark .cm-panel {
+  background: #1f2937 !important;
+  border-color: rgba(255,255,255,.08) !important;
+}
+.app-dark .cm-title       { color: rgba(255,255,255,.85) !important; }
+.app-dark .cm-description { color: rgba(255,255,255,.4) !important; }
+.app-dark .cm-btn--ghost {
+  border-color: rgba(255,255,255,.1) !important;
+  color: rgba(255,255,255,.4) !important;
+}
+.app-dark .cm-btn--ghost:hover {
+  background: rgba(255,255,255,.05) !important;
+  color: rgba(255,255,255,.7) !important;
+}
+@keyframes cm-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cm-slide-up {
+  from { opacity: 0; transform: translateY(12px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}

@@ -1,0 +1,11 @@
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-layout__main {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--surface-ground);
+}
