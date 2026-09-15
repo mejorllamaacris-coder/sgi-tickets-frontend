@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sgi-accent: #0044FF;
+  --sgi-accent-bg: #E8EEFF;
+  --sgi-accent-hover: #0033CC;
+  --sgi-accent-glow: rgba(0, 68, 255, 0.4);
+  
+  --sgi-dark: #0A0E27;
+  --sgi-page: #F5F7FA;
+  --sgi-surface: #FFFFFF;
+  --sgi-surface-soft: #F8FAFC;
+  --sgi-ink: #0F172A;
+  --sgi-ink-muted: #64748B;
+  --sgi-border: #E2E8F0;
+  --sgi-border-strong: #CBD5E1;
+  --sgi-boundary: rgba(0, 68, 255, 0.15);
+  --sgi-shadow: rgba(0, 0, 0, 0.06);
+  --sgi-panel-bg: #ECECED;
+  --sgi-hex-stroke: rgba(0, 0, 0, 0.08);
+  --sgi-glass-light: rgba(255, 255, 255, 0.85);
+
+  --sgi-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sgi-font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sgi-radius-card: 18px;
+  --sgi-radius-control: 12px;
+}
+
+.dark {
+  --sgi-page: #0A0E27;
+  --sgi-surface: #111827;
+  --sgi-surface-soft: #1F2937;
+  --sgi-ink: #F1F5F9;
+  --sgi-ink-muted: #94A3B8;
+  --sgi-border: #1E293B;
+  --sgi-border-strong: #334155;
+  --sgi-boundary: rgba(0, 68, 255, 0.3);
+  --sgi-shadow: rgba(0, 0, 0, 0.4);
+  --sgi-panel-bg: #0F172A;
+  --sgi-hex-stroke: rgba(0, 0, 0, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100vh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
+body, div, input, button, select, textarea {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  font-family: var(--sgi-font-body);
+  color: var(--sgi-ink);
+  background: var(--sgi-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+.prd-layout {
+  height: calc(100vh - 57px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
